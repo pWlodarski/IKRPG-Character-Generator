@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace IKRPG_Character_Generator
 {
-    public partial class Form1 : Form
+    public partial class mForm : Form
     {
-        public Form1()
+        public mForm()
         {
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void mForm_Load(object sender, EventArgs e)
         {
 
         }
@@ -38,6 +38,26 @@ namespace IKRPG_Character_Generator
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Console.WriteLine("selection changed");
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioButton3_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void racialText_Paint(object sender, PaintEventArgs e)
         {
 
         }
