@@ -11,7 +11,7 @@ using System.Windows.Forms;
 namespace IKRPG_Character_Generator {
     public partial class mForm : Form {
         private readonly string humanText = "Humans are by far the predominant race living in the Iron Kingdoms, and perhaps across Caen itself, as they have been observed on several continents. Mankind has been prevalent in western Immoren for as long as legends have been told, with civizations stretching back six thousand years and untold millennia before that as nomadic tribes. Humans are an adaptable and hardy race capable of broad range of careers and thriving in every geography, from the frozen northern mountants to the arid desert wastes. Humans have been at the forefront of invention and pioneering many of the technologies that the nations of the region rely upon, including alchemy and mechanika.\r\n\r\nThe fine Iron Kingdoms were the inheritors of the Thousand Cities Era, a time when countless pretty fiefdoms emerged across the region. This has given rise to a proliferation of human ethnicities and cultures, each proud of its history. Many of the peoples of western Immoren have distinct physical traits and can be recognized on sight.\r\n\r\nHumans come in a wide range of appearances, with great variance in skin pigmentation, height, hair and eye color, and body build. Most Immorese humans have pale or olive skin, but there are those who are exceptionally pale and others with very dark skin. Hair colors are usually shades of brown, but include black, red, lond, and many shades between. Humans identify with one another more by shared languages and nationality than by superficial physical distenctions.";
-        private readonly string[,] humanStats = new string[9,4] {
+        private readonly string[,] humanStats = new string[9, 4] {
                                                 {"5","7","8","8"}, // PHY
                                                 {"6","7","7","7"}, // SPD
                                                 {"4","6","7","8"}, // STR
@@ -23,7 +23,7 @@ namespace IKRPG_Character_Generator {
                                                 {"3","5","6","7"}  // PER
                                             };
         private readonly string dwarfText = "";
-        private readonly string[,] dwarfStats = new string[9,4] {
+        private readonly string[,] dwarfStats = new string[9, 4] {
                                                 {"6","7","7","8"}, // PHY
                                                 {"4","5","6","6"}, // SPD
                                                 {"5","6","7","8"}, // STR
@@ -35,7 +35,7 @@ namespace IKRPG_Character_Generator {
                                                 {"3","4","6","7"}  // PER
                                             };
         private readonly string gobberText = "";
-        private readonly string[,] gobberStats = new string[9,4] {
+        private readonly string[,] gobberStats = new string[9, 4] {
                                                 {"4","6","7","7"}, // PHY
                                                 {"6","7","7","7"}, // SPD
                                                 {"3","4","5","6"}, // STR
@@ -47,7 +47,7 @@ namespace IKRPG_Character_Generator {
                                                 {"3","4","4","5"}  // PER
                                             };
         private readonly string iosanText = "";
-        private readonly string[,] iosanStats = new string[9,4] {
+        private readonly string[,] iosanStats = new string[9, 4] {
                                                 {"5","7","7","7"}, // PHY
                                                 {"6","7","7","7"}, // SPD
                                                 {"4","5","6","7"}, // STR
@@ -59,7 +59,7 @@ namespace IKRPG_Character_Generator {
                                                 {"3","5","6","7"}  // PER
                                             };
         private readonly string nyssText = "";
-        private readonly string[,] nyssStats = new string[9,4] {
+        private readonly string[,] nyssStats = new string[9, 4] {
                                                 {"5","7","7","8"}, // PHY
                                                 {"6","7","7","7"}, // SPD
                                                 {"4","6","7","8"}, // STR
@@ -71,7 +71,7 @@ namespace IKRPG_Character_Generator {
                                                 {"3","5","6","6"}  // PER
                                             };
         private readonly string ogrunText = "";
-        private readonly string[,] ogrunStats = new string[9,4] {
+        private readonly string[,] ogrunStats = new string[9, 4] {
                                                 {"6","7","8","9"}, // PHY
                                                 {"5","6","6","6"}, // SPD
                                                 {"6","8","9","10"}, // STR
@@ -83,7 +83,7 @@ namespace IKRPG_Character_Generator {
                                                 {"2","4","5","6"}  // PER
                                             };
         private readonly string trollkinText = "";
-        private readonly string[,] trollkinStats = new string[9,4] {
+        private readonly string[,] trollkinStats = new string[9, 4] {
                                                 {"6","8","9","10"}, // PHY
                                                 {"5","6","6","6"}, // SPD
                                                 {"5","7","8","9"}, // STR
@@ -98,6 +98,7 @@ namespace IKRPG_Character_Generator {
         public mForm() {
             InitializeComponent();
             raceSelection.Text = "Human";
+            archetypeSelection.Text = "Gifted";
         }
 
         private void raceSelectionChanged(object sender, EventArgs e) {
@@ -112,10 +113,23 @@ namespace IKRPG_Character_Generator {
                 iosanSelected();
             } else if ( selected.Equals("Nyss") ) {
                 nyssSelected();
-            } else if ( selected.Equals("Ogrun") ) {
+            } else if ( selected.Equals("Orgun") ) {
                 ogrunSelected();
             } else if ( selected.Equals("Trollkin") ) {
                 trollkinSelected();
+            }
+        }
+
+        private void archSelectionChanged(object sender, EventArgs e) {
+            string selected = archetypeSelection.SelectedItem.ToString();
+            if ( selected.Equals("Gifted") ) {
+                giftedSelected();
+            } else if ( selected.Equals("Intellectual") ) {
+                intellectualSelected();
+            } else if ( selected.Equals("Mighty") ) {
+                mightySelected();
+            } else if ( selected.Equals("Skilled") ) {
+                skilledSelected();
             }
         }
 
@@ -427,8 +441,87 @@ namespace IKRPG_Character_Generator {
             this.racialText.Text = this.trollkinText;
         }
 
-        private void raceSelection_MouseWheel(object sender, MouseEventArgs e) {
+        private void giftedSelected() {
+            giftedFlowPanel.Visible = true;
+            intellectualFlowPanel.Visible = false;
+            mightFlowPanel.Visible = false;
+            skilledFlowPanel.Visible = false;
+            uncheckBoxes();
+        }
+
+        private void intellectualSelected() {
+            giftedFlowPanel.Visible = false;
+            intellectualFlowPanel.Visible = true;
+            mightFlowPanel.Visible = false;
+            skilledFlowPanel.Visible = false;
+            uncheckBoxes();
+        }
+
+        private void mightySelected() {
+            giftedFlowPanel.Visible = false;
+            intellectualFlowPanel.Visible = false;
+            mightFlowPanel.Visible = true;
+            skilledFlowPanel.Visible = false;
+            uncheckBoxes();
+        }
+
+        private void skilledSelected() {
+            giftedFlowPanel.Visible = false;
+            intellectualFlowPanel.Visible = false;
+            mightFlowPanel.Visible = false;
+            skilledFlowPanel.Visible = true;
+            uncheckBoxes();
+        }
+
+        private void uncheckBoxes() {
+            this.giftedAdditionalStudy.Checked = false;
+            this.giftedCombatCaster.Checked = false;
+            this.giftedFastCaster.Checked = false;
+            this.giftedFeatDominator.Checked = false;
+            this.giftedFeatPowerfulCaster.Checked = false;
+            this.giftedFeatQuickCast.Checked = false;
+            this.giftedFeatStrengthOfWill.Checked = false;
+            this.giftedMagicSensitivity.Checked = false;
+            this.giftedRuneReader.Checked = false;
+            this.giftedWardingCircle.Checked = false;
+            this.intelBattlefieldCoordination.Checked = false;
+            this.intelFeatFlawlessTiming.Checked = false;
+            this.intelFeatPrescient.Checked = false;
+            this.intelFeatPerfectPlot.Checked = false;
+            this.intelFeatPlanOfAction.Checked = false;
+            this.intelFeatQuickThinking.Checked = false;
+            this.intelFeatUnconventionalWarfare.Checked = false;
+            this.intelGenius.Checked = false;
+            this.intelHyperPerception.Checked = false;
+            this.intelPhotographicMemory.Checked = false;
+            this.mightBeatBack.Checked = false;
+            this.mightFeatBackSwing.Checked = false;
+            this.mightFeatBoundingLeap.Checked = false;
+            this.mightFeatCounterCharge.Checked = false;
+            this.mightFeatInvulnerable.Checked = false;
+            this.mightFeatRevitalize.Checked = false;
+            this.mightFeatShieldBreaker.Checked = false;
+            this.mightFeatVendetta.Checked = false;
+            this.mightRighteousAnger.Checked = false;
+            this.mightTough.Checked = false;
+            this.skillAmbidextrous.Checked = false;
+            this.skillCagey.Checked = false;
+            this.skillDeft.Checked = false;
+            this.skillFeatDefensiveStrike.Checked = false;
+            this.skillFeatDisarm.Checked = false;
+            this.skillFeatSwashbuckler.Checked = false;
+            this.skillFeatUntouchable.Checked = false;
+            this.skillPreternaturaAwareness.Checked = false;
+            this.skillSidestep.Checked = false;
+            this.skillVirtuoso.Checked = false;
+        }
+
+        private void disableMouseWheel(object sender, MouseEventArgs e) {
             ((HandledMouseEventArgs)e).Handled = true;
+        }
+
+        private void exitToolStripMenuItem1_Click(object sender, EventArgs e) {
+            Application.Exit();
         }
     }
 }
