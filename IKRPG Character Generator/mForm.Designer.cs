@@ -27,6 +27,9 @@ namespace IKRPG_Character_Generator {
             this.mMenuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.tabContainer = new System.Windows.Forms.TabControl();
             this.racialTab = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -132,11 +135,24 @@ namespace IKRPG_Character_Generator {
             this.skillPreternaturaAwareness = new System.Windows.Forms.CheckBox();
             this.skillSidestep = new System.Windows.Forms.CheckBox();
             this.skillVirtuoso = new System.Windows.Forms.CheckBox();
-            this.careerTab = new System.Windows.Forms.TabPage();
-            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.archetypeMinorText = new System.Windows.Forms.TextBox();
+            this.careerTab = new System.Windows.Forms.TabPage();
+            this.miscTab = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.playerNameText = new System.Windows.Forms.TextBox();
+            this.playerNameLabel = new System.Windows.Forms.Label();
+            this.characterHeightLabel = new System.Windows.Forms.Label();
+            this.characterHeightText = new System.Windows.Forms.TextBox();
+            this.characterWeightLabel = new System.Windows.Forms.Label();
+            this.characterWeightText = new System.Windows.Forms.TextBox();
+            this.characterGenderText = new System.Windows.Forms.TextBox();
+            this.characterGenderLabel = new System.Windows.Forms.Label();
+            this.characterNameLabel = new System.Windows.Forms.Label();
+            this.characterNameText = new System.Windows.Forms.TextBox();
+            this.characterFaithLabel = new System.Windows.Forms.Label();
+            this.characterFaithText = new System.Windows.Forms.TextBox();
+            this.characterDefiningLabel = new System.Windows.Forms.Label();
+            this.characterDefiningText = new System.Windows.Forms.TextBox();
             this.mMenuStrip.SuspendLayout();
             this.tabContainer.SuspendLayout();
             this.racialTab.SuspendLayout();
@@ -159,6 +175,8 @@ namespace IKRPG_Character_Generator {
             this.intellectualFlowPanel.SuspendLayout();
             this.mightFlowPanel.SuspendLayout();
             this.skilledFlowPanel.SuspendLayout();
+            this.miscTab.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // mMenuStrip
@@ -186,14 +204,36 @@ namespace IKRPG_Character_Generator {
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
             this.exitToolStripMenuItem.Text = "New";
+            // 
+            // openToolStripMenuItem
+            // 
+            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
+            this.openToolStripMenuItem.ShowShortcutKeys = false;
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
+            this.openToolStripMenuItem.Text = "Open";
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
+            // 
+            // saveToolStripMenuItem
+            // 
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
+            this.saveToolStripMenuItem.Text = "Save";
+            // 
+            // exitToolStripMenuItem1
+            // 
+            this.exitToolStripMenuItem1.Name = "exitToolStripMenuItem1";
+            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(98, 22);
+            this.exitToolStripMenuItem1.Text = "Exit";
+            this.exitToolStripMenuItem1.Click += new System.EventHandler(this.exitToolStripMenuItem1_Click);
             // 
             // tabContainer
             // 
             this.tabContainer.Controls.Add(this.racialTab);
             this.tabContainer.Controls.Add(this.archetypeTab);
             this.tabContainer.Controls.Add(this.careerTab);
+            this.tabContainer.Controls.Add(this.miscTab);
             this.tabContainer.Location = new System.Drawing.Point(0, 27);
             this.tabContainer.Name = "tabContainer";
             this.tabContainer.SelectedIndex = 0;
@@ -846,7 +886,6 @@ namespace IKRPG_Character_Generator {
             // 
             // racialText
             // 
-            this.racialText.Cursor = System.Windows.Forms.Cursors.Default;
             this.racialText.Dock = System.Windows.Forms.DockStyle.Fill;
             this.racialText.Location = new System.Drawing.Point(0, 0);
             this.racialText.Multiline = true;
@@ -909,6 +948,7 @@ namespace IKRPG_Character_Generator {
             this.archetypeText.Multiline = true;
             this.archetypeText.Name = "archetypeText";
             this.archetypeText.ReadOnly = true;
+            this.archetypeText.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.archetypeText.Size = new System.Drawing.Size(288, 343);
             this.archetypeText.TabIndex = 1;
             // 
@@ -1413,35 +1453,6 @@ namespace IKRPG_Character_Generator {
             this.skillVirtuoso.Text = "Virtuoso";
             this.skillVirtuoso.UseVisualStyleBackColor = true;
             // 
-            // careerTab
-            // 
-            this.careerTab.Location = new System.Drawing.Point(4, 22);
-            this.careerTab.Name = "careerTab";
-            this.careerTab.Padding = new System.Windows.Forms.Padding(3);
-            this.careerTab.Size = new System.Drawing.Size(577, 401);
-            this.careerTab.TabIndex = 2;
-            this.careerTab.Text = "Careers";
-            this.careerTab.UseVisualStyleBackColor = true;
-            // 
-            // openToolStripMenuItem
-            // 
-            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.openToolStripMenuItem.Text = "Open";
-            // 
-            // saveToolStripMenuItem
-            // 
-            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.saveToolStripMenuItem.Text = "Save";
-            // 
-            // exitToolStripMenuItem1
-            // 
-            this.exitToolStripMenuItem1.Name = "exitToolStripMenuItem1";
-            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
-            this.exitToolStripMenuItem1.Text = "Exit";
-            this.exitToolStripMenuItem1.Click += new System.EventHandler(this.exitToolStripMenuItem1_Click);
-            // 
             // archetypeMinorText
             // 
             this.archetypeMinorText.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1452,6 +1463,196 @@ namespace IKRPG_Character_Generator {
             this.archetypeMinorText.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.archetypeMinorText.Size = new System.Drawing.Size(271, 200);
             this.archetypeMinorText.TabIndex = 0;
+            // 
+            // careerTab
+            // 
+            this.careerTab.Location = new System.Drawing.Point(4, 22);
+            this.careerTab.Name = "careerTab";
+            this.careerTab.Padding = new System.Windows.Forms.Padding(3);
+            this.careerTab.Size = new System.Drawing.Size(577, 401);
+            this.careerTab.TabIndex = 2;
+            this.careerTab.Text = "Careers";
+            this.careerTab.UseVisualStyleBackColor = true;
+            // 
+            // miscTab
+            // 
+            this.miscTab.Controls.Add(this.tableLayoutPanel1);
+            this.miscTab.Location = new System.Drawing.Point(4, 22);
+            this.miscTab.Name = "miscTab";
+            this.miscTab.Padding = new System.Windows.Forms.Padding(3);
+            this.miscTab.Size = new System.Drawing.Size(577, 401);
+            this.miscTab.TabIndex = 3;
+            this.miscTab.Text = "Additional Info";
+            this.miscTab.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.Controls.Add(this.playerNameText, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.playerNameLabel, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.characterHeightLabel, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.characterHeightText, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.characterWeightLabel, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.characterWeightText, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.characterGenderText, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.characterGenderLabel, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.characterNameLabel, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.characterNameText, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.characterFaithLabel, 0, 5);
+            this.tableLayoutPanel1.Controls.Add(this.characterFaithText, 1, 5);
+            this.tableLayoutPanel1.Controls.Add(this.characterDefiningLabel, 0, 6);
+            this.tableLayoutPanel1.Controls.Add(this.characterDefiningText, 1, 6);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 7;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(571, 395);
+            this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // playerNameText
+            // 
+            this.playerNameText.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.playerNameText.Location = new System.Drawing.Point(127, 3);
+            this.playerNameText.Name = "playerNameText";
+            this.playerNameText.Size = new System.Drawing.Size(475, 20);
+            this.playerNameText.TabIndex = 15;
+            // 
+            // playerNameLabel
+            // 
+            this.playerNameLabel.AutoSize = true;
+            this.playerNameLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.playerNameLabel.Location = new System.Drawing.Point(3, 0);
+            this.playerNameLabel.Name = "playerNameLabel";
+            this.playerNameLabel.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.playerNameLabel.Size = new System.Drawing.Size(118, 26);
+            this.playerNameLabel.TabIndex = 14;
+            this.playerNameLabel.Text = "Player Name";
+            this.playerNameLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // characterHeightLabel
+            // 
+            this.characterHeightLabel.AutoSize = true;
+            this.characterHeightLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.characterHeightLabel.Location = new System.Drawing.Point(3, 104);
+            this.characterHeightLabel.Name = "characterHeightLabel";
+            this.characterHeightLabel.Size = new System.Drawing.Size(118, 26);
+            this.characterHeightLabel.TabIndex = 7;
+            this.characterHeightLabel.Text = "Height";
+            this.characterHeightLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // characterHeightText
+            // 
+            this.characterHeightText.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.characterHeightText.Location = new System.Drawing.Point(127, 107);
+            this.characterHeightText.Name = "characterHeightText";
+            this.characterHeightText.Size = new System.Drawing.Size(475, 20);
+            this.characterHeightText.TabIndex = 6;
+            // 
+            // characterWeightLabel
+            // 
+            this.characterWeightLabel.AutoSize = true;
+            this.characterWeightLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.characterWeightLabel.Location = new System.Drawing.Point(3, 78);
+            this.characterWeightLabel.Name = "characterWeightLabel";
+            this.characterWeightLabel.Size = new System.Drawing.Size(118, 26);
+            this.characterWeightLabel.TabIndex = 5;
+            this.characterWeightLabel.Text = "Weight";
+            this.characterWeightLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // characterWeightText
+            // 
+            this.characterWeightText.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.characterWeightText.Location = new System.Drawing.Point(127, 81);
+            this.characterWeightText.Name = "characterWeightText";
+            this.characterWeightText.Size = new System.Drawing.Size(475, 20);
+            this.characterWeightText.TabIndex = 4;
+            // 
+            // characterGenderText
+            // 
+            this.characterGenderText.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.characterGenderText.Location = new System.Drawing.Point(127, 55);
+            this.characterGenderText.Name = "characterGenderText";
+            this.characterGenderText.Size = new System.Drawing.Size(475, 20);
+            this.characterGenderText.TabIndex = 3;
+            // 
+            // characterGenderLabel
+            // 
+            this.characterGenderLabel.AutoSize = true;
+            this.characterGenderLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.characterGenderLabel.Location = new System.Drawing.Point(3, 52);
+            this.characterGenderLabel.Name = "characterGenderLabel";
+            this.characterGenderLabel.Size = new System.Drawing.Size(118, 26);
+            this.characterGenderLabel.TabIndex = 2;
+            this.characterGenderLabel.Text = "Sex";
+            this.characterGenderLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // characterNameLabel
+            // 
+            this.characterNameLabel.AutoSize = true;
+            this.characterNameLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.characterNameLabel.Location = new System.Drawing.Point(3, 26);
+            this.characterNameLabel.Name = "characterNameLabel";
+            this.characterNameLabel.Size = new System.Drawing.Size(118, 26);
+            this.characterNameLabel.TabIndex = 0;
+            this.characterNameLabel.Text = "Character Name";
+            this.characterNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // characterNameText
+            // 
+            this.characterNameText.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.characterNameText.Location = new System.Drawing.Point(127, 29);
+            this.characterNameText.Name = "characterNameText";
+            this.characterNameText.Size = new System.Drawing.Size(475, 20);
+            this.characterNameText.TabIndex = 1;
+            // 
+            // characterFaithLabel
+            // 
+            this.characterFaithLabel.AutoSize = true;
+            this.characterFaithLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.characterFaithLabel.Location = new System.Drawing.Point(3, 130);
+            this.characterFaithLabel.Name = "characterFaithLabel";
+            this.characterFaithLabel.Size = new System.Drawing.Size(118, 26);
+            this.characterFaithLabel.TabIndex = 8;
+            this.characterFaithLabel.Text = "Faith";
+            this.characterFaithLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // characterFaithText
+            // 
+            this.characterFaithText.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.characterFaithText.Location = new System.Drawing.Point(127, 133);
+            this.characterFaithText.Name = "characterFaithText";
+            this.characterFaithText.Size = new System.Drawing.Size(475, 20);
+            this.characterFaithText.TabIndex = 9;
+            // 
+            // characterDefiningLabel
+            // 
+            this.characterDefiningLabel.AutoSize = true;
+            this.characterDefiningLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.characterDefiningLabel.Location = new System.Drawing.Point(3, 156);
+            this.characterDefiningLabel.Name = "characterDefiningLabel";
+            this.characterDefiningLabel.Padding = new System.Windows.Forms.Padding(0, 5, 0, 0);
+            this.characterDefiningLabel.Size = new System.Drawing.Size(118, 239);
+            this.characterDefiningLabel.TabIndex = 12;
+            this.characterDefiningLabel.Text = "Defining Characteristics";
+            this.characterDefiningLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // characterDefiningText
+            // 
+            this.characterDefiningText.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.characterDefiningText.Location = new System.Drawing.Point(127, 159);
+            this.characterDefiningText.Multiline = true;
+            this.characterDefiningText.Name = "characterDefiningText";
+            this.characterDefiningText.Size = new System.Drawing.Size(475, 233);
+            this.characterDefiningText.TabIndex = 13;
             // 
             // mForm
             // 
@@ -1495,6 +1696,9 @@ namespace IKRPG_Character_Generator {
             this.mightFlowPanel.PerformLayout();
             this.skilledFlowPanel.ResumeLayout(false);
             this.skilledFlowPanel.PerformLayout();
+            this.miscTab.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1570,6 +1774,22 @@ namespace IKRPG_Character_Generator {
         private ToolStripMenuItem saveToolStripMenuItem;
         private ToolStripMenuItem exitToolStripMenuItem1;
         private TextBox archetypeMinorText;
+        private TabPage miscTab;
+        private TableLayoutPanel tableLayoutPanel1;
+        private Label characterGenderLabel;
+        private Label characterNameLabel;
+        private TextBox characterNameText;
+        private Label characterWeightLabel;
+        private TextBox characterWeightText;
+        private TextBox characterGenderText;
+        private TextBox characterHeightText;
+        private Label characterHeightLabel;
+        private Label characterFaithLabel;
+        private TextBox characterFaithText;
+        private Label characterDefiningLabel;
+        private TextBox characterDefiningText;
+        private TextBox playerNameText;
+        private Label playerNameLabel;
 
     }
 }
